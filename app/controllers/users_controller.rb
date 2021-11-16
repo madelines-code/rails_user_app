@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     # here we grab all cars
     @users = User.all
     # render cars
-    render component: "Users", props:{users:@users}
+    render component: "users", props:{users:@users}
   end
 
   def show
@@ -18,13 +18,13 @@ class UsersController < ApplicationController
   #(C)reate
   def new
     # render new form
-    render component: "NewUser"
+    render component: "newUser"
   end
 
   def create
     # create car(from from UI) to our db
     User.create(full_name: params[:user][:full_name], age: params[:user][:age], gender: params[:user][:gender])
-    # redirect_to users_path
+    redirect_to root_path
   end
 
   #(U)pdate
