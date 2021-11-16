@@ -12,6 +12,7 @@ const Users = (props) => {
           <p>{user.age}</p>
           <p>{user.gender}</p>
           <a href = {`/users/${user.id}`}>View This User's Profile</a>
+          <a href = {`/users/${user.id}/edit`}>Edit This User</a>
         </div>
       );
     });

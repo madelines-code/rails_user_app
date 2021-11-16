@@ -27,19 +27,35 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  #(U)pdate
-  # def edit
-  #   #we need to find car in DB to update
-  #   user = User.find(params[:id])
-  #   # render update form
-  #   render component: "UpdateUser"
-  # end
+  def users_params
+    params.require(:user).permit(:full_name, :age, :gender)
+  end
 
-  # def update
-  #   # find car to Update
-  #   car = Car.find(params[:id])
-  #   # update car(from from UI) to our db
-  # end
+
+ # (U)pdate
+  # edit returns the form to user/client
+ def edit
+  @user = User.find(params[:id])
+  # If method ends here Rails will look for the erb file in app/views/pages/edit.html.erb by default at this point
+  ## SSRR WAY ###
+  # if we comment this out Rails will look for the erb file in app/javascript/components/PageEdit.js
+  render component: "userEdit", props: { user: @user }
+end
+
+# update takes values from form and updates the record
+def update
+  @user = User.find(params[:id])
+  if @user.update(users_params)
+    # this will take us to our index method
+    redirect_to root_path
+  else
+    # renders app/views/pages/edit.html.erb (ERB WAY)
+    # render :edit
+   
+    ## SSRR way ##
+    render component: "userEdit", props: { user: @user }
+  end
+end
 
   # #(D)elete
   # def destroy
