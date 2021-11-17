@@ -7,15 +7,12 @@ const newUsers = () => {
       <h1>Join Us As A New User</h1>
       <form action="/users" method="post">
         <p>Name</p>
-        {/* <input name='model[attr]'/> */}
 
         <input name="user[full_name]" />
         <p>Age</p>
-        {/* <input name='model[attr]'/> */}
 
         <input name="user[age]" />
         <p>Gender</p>
-        {/* <input name='model[attr]'/> */}
 
         <input name="user[gender]" />
         <button type="submit">Join Now</button>
@@ -23,7 +20,5 @@ const newUsers = () => {
       <a href = {'/'}>All Users</a>
     </div>
   );
-
-  // return <p>New Notes Here: {renderNotes()}</p>;
 };
 export default newUsers;

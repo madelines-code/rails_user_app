@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
- # our Car model is an ActiveRecord
   #(R)ead
   def index
     # here we grab all users
@@ -10,8 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #find car and show it (1 car by id)
-    # render car
+    #find user and show it (1 user by id)
+    # render user
     render component: "oneUser", props: {user: @user}
   end
 
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    # create car(from from UI) to our db
+    # create user(from from UI) to our db
     User.create(full_name: params[:user][:full_name], age: params[:user][:age], gender: params[:user][:gender])
     redirect_to root_path
   end
@@ -37,9 +36,6 @@ class UsersController < ApplicationController
   # edit returns the form to user/client
  def edit
   @user = User.find(params[:id])
-  # If method ends here Rails will look for the erb file in app/views/pages/edit.html.erb by default at this point
-  ## SSRR WAY ###
-  # if we comment this out Rails will look for the erb file in app/javascript/components/PageEdit.js
   render component: "userEdit", props: { user: @user }
 end
 
@@ -50,10 +46,6 @@ def update
     # this will take us to our index method
     redirect_to root_path
   else
-    # renders app/views/pages/edit.html.erb (ERB WAY)
-    # render :edit
-   
-    ## SSRR way ##
     render component: "userEdit", props: { user: @user }
   end
 end
