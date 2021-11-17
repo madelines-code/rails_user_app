@@ -2,10 +2,10 @@ class UsersController < ApplicationController
  # our Car model is an ActiveRecord
   #(R)ead
   def index
-    # here we grab all cars
+    # here we grab all users
     @users = User.all
-    # render cars
-    render component: "users", props:{users:@users}
+    # render users
+    render component: "users", props: {users:@users}
   end
 
   def show
@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     User.create(full_name: params[:user][:full_name], age: params[:user][:age], gender: params[:user][:gender])
     redirect_to root_path
   end
+
+  # private
 
   def users_params
     params.require(:user).permit(:full_name, :age, :gender)
@@ -57,17 +59,14 @@ def update
   end
 end
 
-  # #(D)elete
-  # def destroy
-  #   # find car to Delete
-  #   car = Car.find(params[:id])
-  #   # Delete
-  #   car.destroy
-  # end
+  #(D)elete
+  def destroy
+    # find car to Delete
+    user = User.find(params[:id])
+    # Delete
+    user.destroy
+    redirect_to root_path
+  end
 
-  # private
-
-  # def car_params
-  # end
 
 end

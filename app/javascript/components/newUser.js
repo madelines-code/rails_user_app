@@ -20,6 +20,7 @@ const newUsers = () => {
         <input name="user[gender]" />
         <button type="submit">Join Now</button>
       </form>
+      <a href = {'/'}>All Users</a>
     </div>
   );
 

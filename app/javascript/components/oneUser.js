@@ -9,6 +9,8 @@ const oneUser = (props) =>{
       <p>Gender: {props.user.gender}</p>
       <p>User ID: {props.user.id}</p>
       <a href = {'/'}>All Users</a>
+      <a href = {`/users/${props.user.id}/edit`}>Edit This User</a>
+      <a href = {`/users/${props.user.id}`} data-method = "delete">Delete this user</a>
     </div>
   );
 };

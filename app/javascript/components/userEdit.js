@@ -17,6 +17,7 @@ const userEdit = (props) => {
         <br />
         <button type="submit">update</button>
       </form>
+      <a href = {'/'}>All Users</a>
     </>
   );
 };

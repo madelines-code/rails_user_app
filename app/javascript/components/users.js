@@ -11,13 +11,18 @@ const Users = (props) => {
           <h1>{user.full_name}</h1>
           <p>{user.age}</p>
           <p>{user.gender}</p>
-          <a href = {`/users/${user.id}`}>View This User's Profile</a>
-          <a href = {`/users/${user.id}/edit`}>Edit This User</a>
+          <p><a href = {`/users/${user.id}`}>View This User's Profile</a></p>
+          <p><a href = {`/users/${user.id}/edit`}>Edit This User</a></p>
         </div>
       );
     });
   };
 
-  return <p>Users Here: {renderUsers()}</p>;
+  return (
+  <div>
+    <a href = {`/users/new`}>Join us!</a>
+    <p>Users Here: {renderUsers()}</p>
+  </div>
+  );
 };
 export default Users;
